@@ -1,6 +1,7 @@
 import { Timer } from "lucide-react";
-
-export default function CountdownDisplay({ countdown }) {
+import { useSocket } from "../contexts/Context";
+export default function CountdownDisplay() {
+  const { countdown } = useSocket();
   return (
     <div className="text-center bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-6">
       <div className="text-8xl font-bold text-gray-900 mb-4">{countdown}</div>

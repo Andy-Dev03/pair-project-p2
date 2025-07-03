@@ -23,8 +23,10 @@ const AuthPage = () => {
           <div className="flex justify-center mb-6">
             <button
               onClick={() => setIsRegister(true)}
-              className={`px-2 font-semibold text-2xl ${
-                isRegister ? "text-white font-bold" : "text-gray-500 font-bold"
+              className={`px-2 font-semibold text-2xl  ${
+                isRegister
+                  ? "text-white font-bold"
+                  : "text-gray-500 font-bold hover:text-white/70"
               }`}
             >
               REGISTRATION
@@ -33,7 +35,9 @@ const AuthPage = () => {
             <button
               onClick={() => setIsRegister(false)}
               className={`px-2 font-semibold text-2xl ${
-                !isRegister ? "text-white font-bold" : "text-gray-500 font-bold"
+                !isRegister
+                  ? "text-white font-bold"
+                  : "text-gray-500 font-bold hover:text-white/70"
               }`}
             >
               LOGIN

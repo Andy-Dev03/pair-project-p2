@@ -8,13 +8,11 @@ import {
   Zap,
   Target,
 } from "lucide-react";
+import { useSocket } from "../contexts/Context";
 
-export default function PlayersList({
-  players,
-  username,
-  gameStatus,
-  getProgress,
-}) {
+export default function PlayersList() {
+  const { players, username, gameStatus, getProgress } = useSocket();
+
   const getSortedPlayers = () => {
     if (gameStatus === "finished") {
       // Sort by completion status and CPM for final leaderboard

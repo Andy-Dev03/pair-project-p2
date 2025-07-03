@@ -1,4 +1,7 @@
-export default function TextDisplay({ text, userInput, gameStatus }) {
+import { useSocket } from "../contexts/Context";
+
+export default function TextDisplay() {
+  const { text, userInput, gameStatus } = useSocket();
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-6">
       <div className="font-mono text-lg leading-7 select-none break-words whitespace-pre-wrap overflow-hidden">

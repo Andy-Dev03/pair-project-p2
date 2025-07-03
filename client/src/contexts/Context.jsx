@@ -163,10 +163,6 @@ export const SocketProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, [gameStatus, startTime, timeLimit, isComplete]);
 
-  useEffect(() => {
-    // Hapus perhitungan CPM di client, hanya bergantung pada data dari server
-  }, [userInput, gameStatus, startTime, text]);
-
   const setUserInputHandler = (val) => {
     if (!isComplete) {
       setUserInput(val);
@@ -183,11 +179,21 @@ export const SocketProvider = ({ children }) => {
       });
     }
   };
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
 
   const startGame = () => {
     if (!socketRef.current) return;
     setLoading(true);
     socketRef.current.emit("startGame", { timeLimit });
+  };
+
+  const getProgress = (player) => {
+    if (!text) return 0;
+    return Math.min(player.progress || 0, 100);
   };
 
   const contextValue = {
@@ -214,6 +220,8 @@ export const SocketProvider = ({ children }) => {
     username,
     startGame,
     resetGame: () => socketRef.current.emit("resetGame"),
+    formatTime,
+    getProgress,
   };
 
   return (
