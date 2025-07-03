@@ -1,6 +1,8 @@
 import { Zap } from "lucide-react";
+import { useSocket } from "../contexts/Context";
 
-export default function TypingInput({ gameStatus, userInput, setUserInput }) {
+export default function TypingInput() {
+  const { gameStatus, userInput, setUserInput } = useSocket();
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
       <div className="relative">

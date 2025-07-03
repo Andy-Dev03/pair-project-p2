@@ -1,11 +1,9 @@
 import { Users, Wifi, WifiOff, Timer } from "lucide-react";
+import { useSocket } from "../contexts/Context";
 
-export default function GameStatusBar({
-  players,
-  connectionStatus,
-  timeRemaining,
-  formatTime,
-}) {
+export default function GameStatusBar() {
+  const { players, connectionStatus, timeRemaining, formatTime } = useSocket();
+
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 mb-6">
       <div className="flex items-center justify-between">

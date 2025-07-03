@@ -30,7 +30,7 @@ const RegisterForm = ({ onSwitchMode, onTyping, setIsRegister }) => {
       setIsRegister(false);
       toast.success("Registeration successful! Please log in.");
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message[0]);
     }
   };
 

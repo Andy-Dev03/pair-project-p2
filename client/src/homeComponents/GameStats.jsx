@@ -1,6 +1,7 @@
 import { Zap, Target, AlertCircle } from "lucide-react";
-
-export default function GameStats({ cpm, accuracy, errors }) {
+import { useSocket } from "../contexts/Context";
+export default function GameStats() {
+  const { cpm, accuracy, errors } = useSocket();
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
       <div className="grid grid-cols-3 gap-6 text-center">

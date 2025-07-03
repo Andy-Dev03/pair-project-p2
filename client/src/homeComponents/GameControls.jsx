@@ -1,13 +1,15 @@
 import { Play, Timer, Loader2 } from "lucide-react";
+import { useSocket } from "../contexts/Context";
 
-export default function GameControls({
-  gameStatus,
-  timeLimit,
-  setTimeLimit,
-  startGame,
-  socketConnected,
-  loading,
-}) {
+export default function GameControls() {
+  const {
+    gameStatus,
+    timeLimit,
+    setTimeLimit,
+    startGame,
+    socketConnected,
+    loading,
+  } = useSocket();
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center mb-6">
       <div className="mb-6">

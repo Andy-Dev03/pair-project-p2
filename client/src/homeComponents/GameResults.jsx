@@ -1,12 +1,8 @@
 import { Trophy, Crown, Zap, Target, AlertCircle } from "lucide-react";
+import { useSocket } from "../contexts/Context";
 
-export default function GameResults({
-  isComplete,
-  position,
-  cpm,
-  accuracy,
-  errors,
-}) {
+export default function GameResults() {
+  const { isComplete, position, cpm, accuracy, errors } = useSocket();
   return (
     <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-8 text-center mb-6">
       <div className="flex items-center justify-center space-x-3 mb-4">
