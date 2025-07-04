@@ -192,8 +192,8 @@ export const SocketProvider = ({ children }) => {
   };
 
   const getProgress = (player) => {
-    if (!text) return 0;
-    return Math.min(player.progress || 0, 100);
+    if (!text || !player || typeof player.progress !== "number") return 0;
+    return Math.min(player.progress, 100);
   };
 
   const contextValue = {
